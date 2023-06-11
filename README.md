@@ -1,13 +1,22 @@
-# hidups-qs
-It was created to talk with UPS that use show up as HID UPS in system, while HID have some basic support for UPS, but there is no detailed information, and no special drivers are required (USB HID devices are supported by default in all OSes). So to get more options & control manufacturers adapted popular serial (RS232) protocols to USB hid, and communication with UPS use USB & HID protocol control messages that have a space for additional data. And that space is used for communication, since protocols don't need much data to be sent/received it's works rather ok. 
+# Intro
+Those scripts was created to talk with UPS that use show up as HID UPS in system, while HID have some basic support for UPS, but there is no detailed information, and no special drivers are required (USB HID devices are supported by default in all OSes). So to get more options & control manufacturers adapted popular serial (RS232) protocols to new popular USB interface, and used HID device class since it doesn't need for additional drivers. Communication with UPS utilize USB & HID protocol control messages that have a space for additional data. And that space is used for communication, since protocols don't need much data to be sent/received. 
 
-This script use Voltronic-QS protocol, **V** variant, and there is also **M** variation of it - I guess the only difference the `M` don't report temperature, instead field is always empty ```--.-```.
+Those scripts use Voltronic-QS protocol, **V** variant, and there is also **M** variation of it - I guess the only difference is: the `M` don't report temperature, instead field is always empty ```--.-```.
 
 Many UPS with USB uses this protocol (VoltronicQS) - I feel like it's more popular even than blazer.
 
-Script allow for querying UPS status and parameters/ratings and execute commands (self-test, beeper on/off, shutdown, cancel shutdown...).
+Scripts allow for querying UPS status and parameters/ratings and execute commands (self-test, beeper on/off, shutdown, cancel shutdown...).
 
 For more info about Voltronic-QS check Network UPS Tools (a.k.a. NUT) documentation: https://networkupstools.org/protocols/voltronic-qs.html#V-protocol-queries
+
+There is 2 scripts that works almost identical, difference is how they take parameters/arguments & how data is returned. Each script have a section of this README.
+
+- [hidups-qs.py](#hidups-qs) - This script takes command line arguments and return UPS responses in human readable format :smile:
+- [hidups-qs-json.py](#hidups-qs-json) - This script take as 1st argument JSON string , or if no argument is passwd, then use STDIN to read JSON with parameters. It returns JSON too.
+
+----
+# hidups-qs
+This script was created first and it more human friendly :smiley:
 
 ## Script parameters
 Script takes minimum 3 parameters that are required:
