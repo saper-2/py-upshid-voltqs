@@ -14,6 +14,8 @@ There is 2 scripts that works almost identical, difference is how they take para
 - [hidups-qs.py](#hidups-qs) - This script takes command line arguments and return UPS responses in human readable format :smile:
 - [hidups-qs-json.py](#hidups-qs-json) - This script take as 1st argument JSON string , or if no argument is passwd, then use STDIN to read JSON with parameters. It returns JSON too.
 
+![](screenshot-hidups-qx.png)
+
 ----
 # hidups-qs
 This script was created first and it more human friendly :smiley:
